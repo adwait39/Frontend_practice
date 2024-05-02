@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+</head>
+<body>
+    <h1>Student Management System</h1>
+    
+    <!-- Specify the action URLs for each form to correspond with backend routes -->
+    <form action="http://localhost:3000/total" method="get">
+        <button type="submit">Total Count of Documents</button>
+    </form>
+
+    <form action="http://localhost:3000/list" method="get">
+        <button type="submit">List all Students</button>
+    </form>
+
+    <form action="http://localhost:3000/dsbda" method="get">
+        <button type="submit">Students with More than 20 Marks in DSBDA</button>
+    </form>
+
+    <form  action="http://localhost:3000//update/:id">
+        <input type="text" name="rollNo" id="id" placeholder="Enter Roll No">
+        <button type="submit">Update Marks of Specified Students</button>
+    </form>
+
+    <form action="http://localhost:3000/allsubjects" method="get">
+        <button type="submit">Students with More than 25 Marks in All Subjects</button>
+    </form>
+
+    <form action="http://localhost:3000/mathsscience" method="get">
+        <button type="submit">Students with Less than 40 Marks in Maths or Science</button>
+    </form>
+
+    
+
+    <form id="removeForm">
+        <input type="text" name="rollNo" placeholder="Enter Roll No">
+        <button type="submit">Remove Specified Student Document</button>
+    </form>
+
+    <form action="http://localhost:3000/tabular" method="get">
+        <button type="submit">Display Students Data in Tabular Format</button>
+    </form>
+
+    <div id="response">
+        <!-- Response will be displayed here -->
+    </div>
+
+    <!-- Add JavaScript to handle form submissions -->
+    <script src="./app.js">    </script>
+</body>
+</html>
