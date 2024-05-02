@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        #h1 {
+            background-color: blue;
+            color: aliceblue;
+        }
+
+        .img-btn {
+            margin: 5px;
+            padding: 5px;
+            width: 200px;
+            transition: ease-in-out 700ms;
+        }
+
+        .img-btn:hover {
+            background-color: blue;
+            color: azure;
+            transform: scaleX(1.05) scaleY(1.05);
+
+        }
+
+        #box-img {
+            transition: ease-in-out 700ms;
+        }
+
+        #box-img:hover {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div data-role="page" id="home">
+        <div data-role="header" id="h1">
+            <h1>Pune Institute of Computer Technology</h1>
+        </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Department</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h3>Welcome to PICT web portal</h3>
+        </div>
+
+        <div id="swipe" data-role="content" style="width: fit-content; height: auto; background-color: aqua ; margin-left: 550px;">
+            <img id="box-img" src="blueee.jpg" alt="Image" />
+        </div>
+        <div style="display: flex; align-content: center;margin-left: 500px;">
+            <a href="#" id="changeimage-left" class="ui-btn img-btn"> Previous  </a>
+            <a href="#" id="changeimage-right" class="ui-btn img-btn">Next -> </a>
+        </div>
+
+
+        <section>
+            <h4>Department</h4>
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#" id="cs">CS</a></li>
+                <li><a href="#" id="it">IT</a></li>
+                <li><a href="#" id="entc">ENTC</a></li>
+            </ul>
+            <div id="departInfo" data-role="content"></div>
+            <h2>Vision</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur enim
+                aliquam, reiciendis accusamus velit voluptatem similique quaerat
+                excepturi harum incidunt suscipit, neque error consectetur obcaecati
+                reprehenderit minima minus eligendi repellat?
+            </p>
+        </section>
+        <footer data-role="footer">
+            <h3>Quick Acess</h3>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Department</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+</body>
+<script>
+    var image = ["./cake shop-rafiki.png", "../9/asga.jpg", "../9/raddish.jpg"];
+    var current = 0;
+    $('#changeimage-left').on('click', function () {
+        change('left');
+    })
+    $('#changeimage-right').on('click', function () {
+        change('right');
+    })
+
+    function change(direction) {
+        if (direction === 'left') {
+            current = current - 1;
+        } else {
+            current = current + 1;
+        }
+        $('#box-img').attr('src', image[current])
+    }
+
+    $("#cs").on('click', function () {
+        show('Computer Science Department', 'CS department information goes here.')
+    })
+    $("#it").on('click', function () {
+        show('IT Department', 'IT department information goes here.')
+    })
+    $("#entc").on('click', function () {
+        show('ENTC Department', 'ENTC department information goes here.')
+    })
+
+    function show(title, content) {
+        $("#departInfo").html('<h3>' + title + '</h3><p>' + content + '</p>')
+    }
+
+
+
+</script>
+
+</html>
